@@ -48,6 +48,7 @@ private:
     void copyAddress();
     void launch();
     void stopClient();
+    void closeEvent(QCloseEvent* e);
 };
 
 #endif // MAINWINDOW_H

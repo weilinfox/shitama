@@ -135,7 +135,7 @@ void MainWindow::updateStatus() {
         if(status.contains("connected")) {
 
             auto connected = status["connected"].toBool();
-            qDebug() << "updateStatus" << status;
+            // qDebug() << "updateStatus" << status;
 
             this->setConnected(connected);
 
@@ -244,10 +244,15 @@ void MainWindow::stopClient() {
     if(this->clientProcess != nullptr) {
 
         this->clientProcess->kill();
+        this->clientProcess->waitForFinished();
         this->clientProcess = nullptr;
 
     }
 
+}
+
+void MainWindow::closeEvent(QCloseEvent* e){
+    qApp->quit();
 }
 
 MainWindow::~MainWindow()
