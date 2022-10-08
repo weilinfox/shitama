@@ -204,12 +204,12 @@ func (c *Client) tcpPing(ip string, ports []uint16) time.Duration {
 
 		start := time.Now()
 
-		conn, err := net.Dial("tcp4", addr)
-		defer conn.Close()
+		conn, err := net.DialTimeout("tcp4", addr, time.Millisecond*200)
 
 		if err != nil {
 			continue
 		}
+		defer conn.Close()
 
 		return time.Since(start)
 
@@ -222,7 +222,7 @@ func (c *Client) tcpPing(ip string, ports []uint16) time.Duration {
 func (c *Client) updateRTTs(shards []ShardInfo) {
 
 	for idx := range shards {
-		rtt := c.tcpPing(shards[idx].IP, []uint16{22, 3389})
+		rtt := c.tcpPing(shards[idx].IP, []uint16{22, 23, 80, 443, 3389})
 		shards[idx].RTT = float32(rtt) / 1e6
 	}
 
