@@ -25,8 +25,8 @@ func NewShard() *Shard {
 	s.logger = logrus.New()
 
 	s.Config = make(map[string]interface{})
-	s.Config["holderKcpAddr"] = "shitama.tldr.run:31337"
-	s.Config["holderKcpAddrAlt"] = "115.159.87.170:31337"
+	s.Config["holderKcpAddr"] = "shitama.youmu.love:31337"
+	s.Config["holderKcpAddrAlt"] = "shitama.sakuya.love:31337"
 	s.Config["echoPort"] = 0
 
 	s.Echo = NewEcho(s)

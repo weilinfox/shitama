@@ -52,8 +52,8 @@ func NewClient() *Client {
 	}
 
 	c.Config = make(map[string]interface{})
-	c.Config["holderKcpAddr"] = "shitama.tldr.run:31337"
-	c.Config["holderKcpAddrAlt"] = "115.159.87.170:31337"
+	c.Config["holderKcpAddr"] = "shitama.youmu.love:31337"
+	c.Config["holderKcpAddrAlt"] = "shitama.sakuya.love:31337"
 
 	c.Tunnel = NewTunnel(c)
 	c.API = NewAPI(c)
